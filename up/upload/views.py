@@ -4,13 +4,14 @@ import os
 import hashlib
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from up.settings import MEDIA_ROOT,MEDIA_URL
 
 # Create your views here.
 
 @csrf_exempt
 def UploadGetProfile(request):
     if request.method=='GET':
+        print(MEDIA_URL)
         Upload.addProfile("imagem", {"url":"http://127.0.0.1:8000/upload/", "folder": "./uploads/", "types": ["jpeg", "jpg", "png"], "size": 260000, "total": 10})
         Upload.addInput("backend", "imagem")
         Upload.setRootDir("/path/to/root")

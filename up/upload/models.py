@@ -20,7 +20,7 @@ class Upload:
         if 'folder' in config:
             last = config['folder'][-1]
             if last == '/' or last == "\\":
-                config['folder'] = config['folder'][:-1]
+                config['folder'] = "../"+config['folder'][:-1]
         Upload.profiles[name] = {
             "config": config,
             "key": hashlib.md5(name.encode()).hexdigest(),
